@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Src/">
+    <Project Path="Core/Core.csproj" />
+  </Folder>
+  <Folder Name="/Src/Driven/">
+    <Project Path="Adapter.JwtAuthentication/Adapter.JwtAuthentication.csproj" Id="17c743d2-b903-4310-b304-b097364b9a8e" />
+    <Project Path="Adapter.SqlServer/Adapter.SqlServer.csproj" />
+  </Folder>
+  <Folder Name="/Src/Driving/">
+    <Project Path="Adapter.WebApi/Adapter.WebApi.csproj" />
+  </Folder>
+  <Folder Name="/Test/" />
+</Solution>
