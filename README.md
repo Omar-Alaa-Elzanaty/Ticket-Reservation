@@ -32,10 +32,9 @@ The biggest challenge in ticket reservations is the **"Double-Book" Problem**. I
 ### The Solution: Distributed Locking with Redlock
 To prevent this, I implemented a locking mechanism using **Redis** and the **Redlock** algorithm.
 
-1.  **Horizontal Scaling & No SPOF:** The backend is published across **multiple server instances** to ensure high availability and eliminate any Single Point of Failure (SPOF). 
-2.  **The Distributed Lock:** Since local C# `lock` statements only work within a single process, I use Redis as a global synchronization layer.
-3.  **Atomic Operations:** Before a reservation transaction begins, the system must acquire a global lock in Redis for that specific `TicketId`.
-4.  **Consistency:** If Server A holds the lock, Server B's request is rejected or queued, ensuring that **only one process** can modify the ticket status at any given
+1.  **The Distributed Lock:** Since local C# `lock` statements only work within a single process, I use Redis as a global synchronization layer.
+2.  **Atomicity:** Before a reservation transaction begins, the system must acquire a global lock in Redis for that specific `TicketId`.
+3.  **Consistency:** If Server A holds the lock, Server B's request is rejected or queued, ensuring that **only one process** can modify the ticket status at any given
 
 ---
 
